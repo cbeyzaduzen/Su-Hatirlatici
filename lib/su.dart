@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class SuPage extends StatefulWidget {
+  dynamic myController;
+  SuPage({this.myController});
+
   @override
   _SuPageState createState() => _SuPageState();
 }
-
-var deger;
 
 class _SuPageState extends State<SuPage> {
   @override
@@ -21,7 +22,7 @@ class _SuPageState extends State<SuPage> {
         child: Column(
           children: [
             Text(
-              'İÇMENİZ GEREKEN GÜNLÜK SU MİKTARI: {$context} ',
+              'İÇMENİZ GEREKEN GÜNLÜK SU MİKTARI: {} ',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
             Padding(

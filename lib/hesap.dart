@@ -1,9 +1,7 @@
-import 'dart:html';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:suhatirlatici/su.dart';
+
+import 'su.dart';
 
 class HesapPage extends StatefulWidget {
   @override
@@ -11,16 +9,7 @@ class HesapPage extends StatefulWidget {
 }
 
 class _HesapPageState extends State<HesapPage> {
-  var myController = TextEditingController();
-
-  void initState() {
-    super.initState();
-  }
-
-  void dispose() {
-    myController.dispose();
-    super.dispose();
-  }
+  TextEditingController myController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +23,6 @@ class _HesapPageState extends State<HesapPage> {
             children: [
               TextField(
                   controller: myController,
-                  onChanged: (myController) {},
                   keyboardType: TextInputType.number,
                   textInputAction: TextInputAction.done,
                   autocorrect: false,
@@ -51,7 +39,14 @@ class _HesapPageState extends State<HesapPage> {
               RaisedButton(
                 // ignore: unnecessary_statements
                 onPressed: () {
-                  
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SuPage(
+                        myController: myController,
+                      ),
+                    ),
+                  );
                 },
                 child: const Text(
                   'HESAPLA',

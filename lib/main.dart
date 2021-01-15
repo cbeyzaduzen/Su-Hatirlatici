@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:suhatirlatici/hesap.dart';
-import 'package:suhatirlatici/su.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
             appBar: AppBar(
               backgroundColor: Colors.blue[200],
               bottom: TabBar(
-                tabs: [                
+                tabs: [
                   Tab(
                       icon: Icon(
                     Icons.account_box,
