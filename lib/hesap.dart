@@ -9,10 +9,9 @@ class HesapPage extends StatefulWidget {
 }
 
 class _HesapPageState extends State<HesapPage> {
-  TextEditingController myController = new TextEditingController();
-
   @override
   Widget build(BuildContext context) {
+    TextEditingController myController = new TextEditingController();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -25,7 +24,6 @@ class _HesapPageState extends State<HesapPage> {
                   controller: myController,
                   keyboardType: TextInputType.number,
                   textInputAction: TextInputAction.done,
-                  autocorrect: false,
                   maxLength: 3,
                   cursorColor: Colors.blue,
                   textAlign: TextAlign.center,
@@ -43,7 +41,7 @@ class _HesapPageState extends State<HesapPage> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => SuPage(
-                        myController: myController,
+                        myController: myController.text,
                       ),
                     ),
                   );

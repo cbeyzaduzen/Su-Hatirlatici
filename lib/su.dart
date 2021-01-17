@@ -1,15 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class SuPage extends StatefulWidget {
-  dynamic myController;
+class SuPage extends StatelessWidget {
+  final myController;
+
+  // receive data from the FirstScreen as a parameter
   SuPage({this.myController});
 
-  @override
-  _SuPageState createState() => _SuPageState();
-}
-
-class _SuPageState extends State<SuPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +20,7 @@ class _SuPageState extends State<SuPage> {
         child: Column(
           children: [
             Text(
-              'İÇMENİZ GEREKEN GÜNLÜK SU MİKTARI: {} ',
+              'İÇMENİZ GEREKEN GÜNLÜK SU MİKTARI: $myController',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
             Padding(
