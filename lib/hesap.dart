@@ -15,6 +15,8 @@ class _HesapPageState extends State<HesapPage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        //klavye açıldıgında çıkan overflow hatasını giderir
+        resizeToAvoidBottomPadding: false,
         backgroundColor: Colors.blue[50],
         body: Padding(
           padding: const EdgeInsets.all(16.0),
