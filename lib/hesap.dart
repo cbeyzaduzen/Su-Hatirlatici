@@ -44,6 +44,7 @@ class _HesapPageState extends State<HesapPage> {
                     MaterialPageRoute(
                       builder: (context) => SuPage(
                         myController: myController.text,
+                        
                       ),
                     ),
                   );

@@ -21,6 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  syncfusion_flutter_gauges: ^18.1.45
   flutter:
     sdk: flutter
 
@@ -74,3 +75,6 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+
+ 
