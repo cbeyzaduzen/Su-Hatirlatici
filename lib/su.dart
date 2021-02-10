@@ -6,12 +6,17 @@ import 'package:syncfusion_flutter_gauges/gauges.dart';
 // ignore: must_be_immutable
 class SuPage extends StatelessWidget {
   var myController;
+  var _controller;
+
+  int buttonPressed(controller) {
+    int miktar = int.parse(_controller);
+    return miktar;
+  }
 
   // receive data from the FirstScreen as a parameter
   SuPage({this.myController});
 
   get mainAxisAlignment => null;
-
   @override
   Widget build(BuildContext context) {
     double deger = double.parse(myController);
@@ -20,6 +25,7 @@ class SuPage extends StatelessWidget {
     double maxDeger = yenideger * (1000);
 
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       appBar: AppBar(
         backgroundColor: Colors.blue[200],
       ),
@@ -51,22 +57,28 @@ class SuPage extends StatelessWidget {
             ]),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 40.0),
+            padding: const EdgeInsets.only(top: 30.0),
             child: TextField(
-                keyboardType: TextInputType.number,
-                cursorColor: Colors.blue,
-                textAlign: TextAlign.center,
-                // ignore: deprecated_member_use
-                inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
-                decoration: InputDecoration(
-                    hintText:
-                        'ml cinsinden bugün tükettiğiniz su miktarını giriniz ',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10))))),
+              controller: _controller,
+              keyboardType: TextInputType.number,
+              textInputAction: TextInputAction.done,
+              maxLength: 3,
+              cursorColor: Colors.blue,
+              textAlign: TextAlign.center,
+              // ignore: deprecated_member_use
+              inputFormatters: [WhitelistingTextInputFormatter.digitsOnly],
+              decoration: InputDecoration(
+                  hintText:
+                      'ml cinsinden bugün tükettiğiniz su miktarını giriniz ',
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)))),
+            ),
           ),
-          Text('1 Su Bardağı : 200ml'),
-          Text('1 Şişe Su : 500ml'),
-          Text('1 Büyük Şişe Su : 1500ml'),
+          IconButton(
+            icon: Icon(Icons.local_drink),
+            tooltip: 'EKLE',
+            onPressed: () => buttonPressed(_controller),
+          ),
           Center(
             child: SfRadialGauge(axes: <RadialAxis>[
               RadialAxis(
@@ -89,14 +101,14 @@ class SuPage extends StatelessWidget {
                     thickness: 1.5,
                     lengthUnit: GaugeSizeUnit.factor),
                 minimum: 0,
-                maximum: maxDeger + 100,
+                maximum: maxDeger,
                 interval: 100,
-                startAngle: 80,
-                endAngle: 70,
+                startAngle: 100,
+                endAngle: 800,
                 ranges: <GaugeRange>[
                   GaugeRange(
                       startValue: 0,
-                      endValue: maxDeger + 100,
+                      endValue: maxDeger,
                       startWidth: 0.1,
                       sizeUnit: GaugeSizeUnit.factor,
                       endWidth: 0.1,
@@ -112,7 +124,7 @@ class SuPage extends StatelessWidget {
                 ],
                 pointers: <GaugePointer>[
                   NeedlePointer(
-                      value: 100.0,
+                      value: 400,
                       enableAnimation: true,
                       needleColor: Colors.black,
                       tailStyle: TailStyle(
@@ -128,7 +140,7 @@ class SuPage extends StatelessWidget {
                           color: Colors.blue[100],
                           borderWidth: 0.03,
                           borderColor: Colors.black),
-                      lengthUnit: GaugeSizeUnit.factor)
+                      lengthUnit: GaugeSizeUnit.factor),
                 ],
               ),
             ]),
